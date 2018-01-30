@@ -6,13 +6,14 @@ class Elevator {
     this.requests   = [];
     this.waitingList = [];
     this.passengers = [];
+    this.timeoutId;
   }
 
   start() {
     this.timeoutId = setInterval( () => this.update, 1000);
   }
   stopE() {
-    clearTimeout(this.timeoutId);
+    clearInterval(this.timeoutId);
   }
   update() {
     this.log();
